@@ -22,6 +22,48 @@ relacionada com a entidade "produto" através de uma relação de muitos para
 muitos, indicando que uma venda pode envolver vários produtos e um produto
 pode ser vendido em várias vendas.
 
+#### Exemplo da Modelagem
+
+#### Entidade: Produto
+Atributos:
+- id_produto (chave primária)
+- nome
+- descricao
+- preco
+- quantidade_em_estoque
+
+#### Entidade: Cliente
+Atributos:
+- id_cliente (chave primária)
+- nome
+- email
+- endereco
+
+#### Entidade: Venda
+Atributos:
+- id_venda (chave primária)
+- data_venda
+- id_cliente (chave estrangeira referenciando a entidade Cliente)
+
+#### Entidade: Pedido
+Atributos:
+- id_pedido (chave primária)
+- id_venda (chave estrangeira referenciando a entidade Venda)
+- id_produto (chave estrangeira referenciando a entidade Produto)
+- quantidade
+- preco_unitario
+
+#### Entidade: Estoque
+Atributos:
+- id_produto (chave estrangeira referenciando a entidade Produto)
+- quantidade_em_estoque
+
+##### Relacionamentos:
+- Um Cliente pode realizar várias Vendas (relação um para muitos).
+- Uma Venda pode conter vários Pedidos (relação um para muitos).
+- Um Produto pode estar presente em vários Pedidos (relação muitos para muitos).
+- Um Produto está associado a uma única entrada no Estoque (relação um para um).
+
 ## Tecnologias usadas
 
 Nesse projeto foi usado apenas techs back-end
